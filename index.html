@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Angela!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- ENVELOPE COVER -->
+<div id="envelope"><h1>🎁 Opening your surprise...</h1></div>
+
+<!-- NIGHT MODE BUTTON -->
+<button class="toggle" onclick="toggleMode()">🌙 / ☀️</button>
+
+<!-- MOON -->
+<div class="moon"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>🎂 Happy Birthday, My Angela! 🎉</h1>
+  <p>
+    This is your little playful world.
+    A reminder of how strong, brave, and amazing you are.
+    Tap around, smile, and celebrate YOU 🤍
+  </p>
+
+  <button class="btn" onclick="createConfetti()">POP THE CONFETTI!🎊</button>
+  <button class="btn" onclick="showLove()">💌 TAP ME</button>
+
+  <div id="surprise" style="display:none; margin-top:20px;">
+    <h2>✨ I AM SO PROUD OF YOU ✨</h2>
+    <p>You made it this far. You should be proud of yourself, and that is something to celebrate 🎉</p>
+  </div>
+  <br>
+    <!-- Custom Audio Player -->
+    <div class="audio-player">
+    <button id="playPauseBtn">▶️</button>
+    <div class="progress-container">
+        <div class="progress-bar" id="progress"></div>
+    </div>
+    <span id="time">0:00</span>
+    </div>
+    <audio id="birthdayAudio" src="recordings/voice-rec.m4a"></audio>
+</div>
+
+<!-- HEART GAME + SLIDER + AFFIRMATIONS -->
+<div class="game">
+  <h2>💖 Catch the happiness you deserve 💖</h2>
+  <p class="counter">Hearts collected: <span id="score">0</span></p>
+
+  <button class="btn" onclick="spawnHeart()">Spawn Heart ❤️</button>
+
+  <!-- SLIDER -->
+  <div class="slider">
+    <img src="baby-photos/image-1.jpg" class="active">
+    <img src="baby-photos/image-2.jpeg">
+    <img src="baby-photos/image-3.jpeg">
+    <img src="baby-photos/image-4.jpeg">
+    <img src="baby-photos/image-5.jpg">
+    <img src="baby-photos/image-6.jpg">
+    <img src="baby-photos/image-7.jpg">
+    <img src="baby-photos/image-8.jpg">
+    <img src="baby-photos/image-9.jpg">
+    <img src="baby-photos/image-10.jpg">
+  </div>
+
+  <button class="btn" onclick="newCompliment()">💬 Wanna know something about you besides of being pretty and cute?</button>
+  <div id="complimentBox"></div>
+</div>
+
+<!-- MESSAGE SECTION -->
+<div class="love-note">
+  <h2>💌<br>A Message For You</h2><br>
+  <p>
+    Hino, Happy Birthday!<br><br>
+    I just want you to pause for a moment and realize
+    how far you’ve come. The strength you carry, the healing you
+    keep choosing, and the light and laughter you still share even after everything you’ve been through.
+    That alone is beautiful and something to be proud of and celebrate. <br><br>
+    Be proud of the person you’re becoming.<br>
+    You deserve softness, peace, love and happiness in all forms 🌷
+  </p>
+</div>
+
+<footer>
+  Made by your Riley ❤️ | 5201314
+</footer>
+
+<script src="scrip.js"></script>
+</body>
+</html>
