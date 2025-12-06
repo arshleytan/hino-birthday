@@ -130,3 +130,50 @@ document.querySelector(".progress-container").addEventListener("click", e => {
 
   audio.currentTime = (clickX / width) * duration;
 });
+
+const bgMusic = document.getElementById("bgMusic");
+const voiceAudio = document.getElementById("birthdayAudio");
+
+// Set initial background music volume low
+bgMusic.volume = 0.15;
+
+// Auto-play background music after user interaction (required by most browsers)
+window.addEventListener("click", () => {
+  if(bgMusic.paused){
+    bgMusic.play().catch(()=>{}); // avoids autoplay errors
+  }
+}, {once:true});
+
+// Lower background music when voice plays
+voiceAudio.addEventListener("play", () => {
+  fadeVolume(bgMusic, 0.05, 500); // reduce volume to 0.05 over 0.5s
+});
+
+// Restore background music after voice ends
+voiceAudio.addEventListener("ended", () => {
+  fadeVolume(bgMusic, 0.15, 1000); // back to 0.15 over 1s
+});
+
+// Utility function to fade volume smoothly
+function fadeVolume(audio, targetVolume, duration) {
+  const stepTime = 50; // ms
+  const steps = duration / stepTime;
+  const volumeStep = (targetVolume - audio.volume) / steps;
+  let i = 0;
+
+  const fade = setInterval(() => {
+    if(i < steps){
+      audio.volume = Math.min(Math.max(audio.volume + volumeStep, 0), 1);
+      i++;
+    } else {
+      clearInterval(fade);
+    }
+  }, stepTime);
+}
+
+// Optional: auto-play voice when envelope opens
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    voiceAudio.play().catch(()=>{});
+  }, 2000); // after envelope animation
+});
