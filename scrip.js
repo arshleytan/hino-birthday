@@ -74,6 +74,12 @@ function newCompliment() {
 
 /* CONFETTI */
 function createConfetti() {
+  // Start background music if not already playing
+  if(bgMusic.paused){
+    bgMusic.play().catch(() => {}); // avoid autoplay errors
+  }
+
+  // Existing confetti code
   for (let i = 0; i < 80; i++) {
     let conf = document.createElement("div");
     conf.style.position = "fixed";
